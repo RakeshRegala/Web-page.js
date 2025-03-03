@@ -4,14 +4,61 @@
             Signup page
         </title>
     </head>
+    <style>
+        body{
+            background-color:grey;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        input[type="submit"] {
+            background-color: rgb(42, 103, 103);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 30%;
+        }
+
+        .back{
+            padding-left: 30px;
+            background-color: rgb(228, 234, 155);
+            border-radius: 10%;
+            width:300px;
+            border: 2px solid red;   
+            box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+     
+        }
+
+    </style>
     <body>
+        <section class="back">
         <form action="/signupsubmit" method="GET">
             <h1>Registration form</h1>
-            First name: <input type="text" name="First_Name"><br>
-            Last name: <input type="text" name="Last_Name"><br>
-            Email:<input type="email" name="mail" placeholder="******@gmail.com"><br>
-            Password:<input type="password" name="pass"><br>
-            <input type="submit">
-        </form>
+            <table>
+                <tr>
+                    <td>First Name:</td>
+                    <td><input type="text" name="First_Name"></td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td><input type="text" name="Last_Name"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="mail" placeholder="******@gmail.com"></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="pass"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <input class="button" type="submit" value="Register">
+                    </td>
+                </tr>
+            </table>
+            </form>
+            </section>
     </body>
 </html>

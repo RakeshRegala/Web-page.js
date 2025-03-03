@@ -18,9 +18,10 @@ const db = getFirestore();
 
 app.set('view engine', 'ejs');
 
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.render('welcome');
 })
 
 app.get('/signin', (req, res) => {
