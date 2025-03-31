@@ -1,24 +1,33 @@
-<html>
-    <head>
-        <title>
-            Home Page
-        </title>
-    </head>
-    <body>
-            <h1>Welcome to Home Page</h1>
-            <table border="1">
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                </tr>
-                <% userdata.forEach(function(user) { %>
-                    <tr>
-                        <td><%= user.name %></td>
-                        <td><%= user.email %></td>
-                    </tr>
-                <% }); %>
-            </table>
-            
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Search</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Search</h1>
+        <form action="/home" method="POST">
+            <input type="text" name="symbol" placeholder="Enter stock symbol">
+            <button type="submit">Search</button>
         </form>
-    </body>
+
+        <% if (typeof error !== "undefined" && error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %>
+
+        <% if (stockData) { %>
+            <div class="stock-box">
+                <h2>Stock Details for <%= stockData.symbol %></h2>
+                <p><strong>Current Price:</strong> $<%= stockData.currentPrice %></p>
+                <p><strong>Open Price:</strong> $<%= stockData.openPrice %></p>
+                <p><strong>High Price:</strong> $<%= stockData.highPrice %></p>
+                <p><strong>Low Price:</strong> $<%= stockData.lowPrice %></p>
+                <p><strong>Previous Close:</strong> $<%= stockData.prevClose %></p>
+            </div>
+        <% } %>
+    </div>
+</body>
 </html>

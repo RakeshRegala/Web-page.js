@@ -1,64 +1,103 @@
-<html>
-    <head>
-        <title>
-            Signup page
-        </title>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
     <style>
-        body{
-            background-color:grey;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+       body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    position: relative; /* Required for overlay */
+    color: white;
+}
+
+/* Apply a dark overlay effect to fade the background */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/signin-bg.jpg'); /* Make sure this image is inside the public folder */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(50%); /* Adjust brightness to fade the background */
+    z-index: -1; /* Keep it behind content */
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay effect */
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+    width: 320px;
+}
+
+
+        h1 {
+            font-size: 2rem;
+            color: #ffcc00;
+            margin-bottom: 10px;
         }
-        input[type="submit"] {
-            background-color: rgb(42, 103, 103);
-            color: white;
-            border: none;
+
+        p {
+            font-size: 1rem;
+        }
+
+        input {
+            width: 100%;
             padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: none;
+            background-color: #28a745;
+            color: white;
             cursor: pointer;
-            border-radius: 30%;
+            transition: 0.3s ease-in-out;
         }
 
-        .back{  
-            padding-left: 30px;
-            background-color: rgb(235, 76, 51);
-            border-radius: 10%;
-            width:300px;
-            border: 2px solid rgb(244, 216, 94);   
-            box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
-     
+        button:hover {
+            background-color: #218838;
         }
 
+        a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
-    <body>
-        <section class="back">
-        <form action="/signupsubmit" method="GET">
-            <h1>Registration form</h1>
-            <table>
-                <tr>
-                    <td>First Name:</td>
-                    <td><input type="text" name="First_Name"></td>
-                </tr>
-                <tr>
-                    <td>Last Name:</td>
-                    <td><input type="text" name="Last_Name"></td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td><input type="email" name="mail" placeholder="******@gmail.com"></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><input type="password" name="pass"></td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="text-align: center;">
-                        <input class="button" type="submit" value="Register">
-                    </td>
-                </tr>
-            </table>
-            </form>
-            </section>
-    </body>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <% if (error) { %>
+            <p style="color:red;"><%= error %></p>
+        <% } %>
+        <form action="/signup" method="POST">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="/signin">Sign In</a></p>
+    </div>
+</body>
 </html>

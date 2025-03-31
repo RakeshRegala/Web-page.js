@@ -5,5 +5,4 @@ node_modules/
 key.json
 
 # Ignore package.json & package-lock.json (Not Recommended, but if needed)
-package.json
 package-lock.json

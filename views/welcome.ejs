@@ -1,28 +1,94 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome Page</title>
     <style>
         body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    background-size: 1000px 800px;
-    background-position: center;
-    background-repeat: no-repeat;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
 
-    background-color: grey; 
+        /* Background Image with Faded Effect */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/welcome-bg.jpg'); /* Make sure this image is inside the public folder */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(50%); /* Adjust brightness for fading effect */
+            z-index: -1;
+        }
+
+        .container {
+            background: rgba(162, 159, 159, 0.7); /* Dark overlay effect */
+            padding: 40px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #344a35; /* Green for freshness */
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            color: white;
+            background-color: #007BFF;
+            transition: 0.3s ease-in-out, transform 1.2s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            transition: transform 1.2s;
         }
     </style>
-        
-        <body>
-            <div>
-                <h1 style="color: rgb(129, 224, 116); display: inline-block;">Hey,This is Rakesh!</h1> <br>
-                <a href='/signup'><input class="button" type="submit" value="Signup"></a>
-                <p>
-                    Already have an account! <a href="/signin">Signin</a>
-                </p>
-                
-            </div>
-        </body>
-        
+</head>
+<body>
+    <div class="container">
+        <h1>(●'◡'●) Hey, Explore your Stocks Here! 📈</h1>
+        <p>Welcome to our stock market platform. Start tracking your stocks today!</p>
+
+        <div class="buttons">
+            <a href="/signup" class="btn">Sign Up</a>
+            <a href="/signin" class="btn btn-outline">Sign In</a>
+        </div>
+    </div>
+</body>
 </html>
